@@ -3,6 +3,7 @@ import { BiMenu } from "react-icons/bi";
 import { FaShoppingCart } from "react-icons/fa";
 import MenuItems from "./MenuItems";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menuItems, setMenuItems] = useState([
@@ -16,16 +17,20 @@ const Navbar = () => {
 
   const toggleMenu = () => setOpen(!open);
 
-  const renderMenuItems = (styleOption) =>
+  const renderMenuItems = (customClassName) =>
     menuItems.map((item, index) => (
-      <MenuItems key={index} name={item} style_option={styleOption} />
+      <MenuItems key={index} name={item} className={customClassName} />
     ));
 
   const navbarClass =
     "z-10 fixed w-full h-14 flex items-center justify-between bg-black text-white px-3 py-1";
+
   const logoClass = "text-xl text-center font-bold";
+
   const iconsContainerClass = "flex gap-4 items-center justify-center";
+
   const menuIconClass = "md:hidden";
+
   const mobileMenuClass = classNames(
     "z-0 absolute w-screen h-52 flex flex-col gap-3 items-center justify-center bg-black transition-all duration-100 ease-in",
     {
@@ -46,10 +51,10 @@ const Navbar = () => {
             onClick={toggleMenu}
             className={menuIconClass}
           />
-          {renderMenuItems(false)}
+          {renderMenuItems("hidden md:block")}
         </div>
       </nav>
-      <div className={mobileMenuClass}>{renderMenuItems(true)}</div>
+      <div className={mobileMenuClass}>{renderMenuItems("text-white")}</div>
     </div>
   );
 };

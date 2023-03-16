@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-const MenuItems = ({ name, style_option }) => {
-  const className = `text-md text-center font-semibold ${
-    style_option ? "text-white" : "hidden md:block"
-  }`;
+const MenuItems = ({ name, className }) => {
+  const combinedClassName = `text-md text-center font-semibold ${className}`;
 
   return (
-    <Link to={`/${name.toLowerCase()}`} className={className}>
+    <Link to={`/${name.toLowerCase()}`} className={combinedClassName}>
       {name}
     </Link>
   );
