@@ -21,10 +21,11 @@ const Navbar = () => {
       <MenuItems key={index} name={item} style_option={styleOption} />
     ));
 
-  const navClass = classNames(
-    "z-10 fixed w-full h-14 flex items-center justify-between bg-black text-white px-3 py-1",
-  );
-
+  const navbarClass =
+    "z-10 fixed w-full h-14 flex items-center justify-between bg-black text-white px-3 py-1";
+  const logoClass = "text-xl text-center font-bold";
+  const iconsContainerClass = "flex gap-4 items-center justify-center";
+  const menuIconClass = "md:hidden";
   const mobileMenuClass = classNames(
     "z-0 absolute w-screen h-52 flex flex-col gap-3 items-center justify-center bg-black transition-all duration-100 ease-in",
     {
@@ -35,15 +36,15 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className={navClass}>
-        <span className="text-xl text-center font-bold">Store</span>
-        <div className="flex gap-4 items-center justify-center">
+      <nav className={navbarClass}>
+        <span className={logoClass}>Store</span>
+        <div className={iconsContainerClass}>
           <FaShoppingCart size={19} />
           <BiMenu
             color="white"
             size={28}
             onClick={toggleMenu}
-            className="md:hidden"
+            className={menuIconClass}
           />
           {renderMenuItems(false)}
         </div>
