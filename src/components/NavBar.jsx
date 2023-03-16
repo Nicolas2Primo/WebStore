@@ -42,7 +42,9 @@ const Navbar = () => {
   return (
     <div>
       <nav className={navbarClass}>
-        <span className={logoClass}>Store</span>
+        <Link to="/" className={logoClass}>
+          Store
+        </Link>
         <div className={iconsContainerClass}>
           <FaShoppingCart size={19} />
           <BiMenu
